@@ -1,25 +1,55 @@
 package com.example.demo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Product {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String description;
-    private Double price;
-    private String category;
-    private String image;
-    private Double rating;
-    private Integer stock;
-}
 
+    private String name;
+    private String description;
+    private double price;
+
+    public Product() {}
+
+    public Product(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+}
